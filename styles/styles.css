@@ -38,21 +38,152 @@ h1, h2, h3, h4 {
     font-family: 'Merriweather', serif;
 }
 
+a:link {
+    text-decoration: none;
+    color: gray;
+}
+
 /*---------------------------------3. areas----------------------------------------*/
+
+.inner-container {
+    border-color: pink;
+    border-style: dashed;
+}
+
+.outer-container {
+}
+
 /*---------------------------------3.1 header----------------------------------------*/
 header {
     background-color: #5722CD;
     color: #F3F6F9;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    border-style: solid;
+    border-color: gold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+}
+
+nav li {
+    margin: 20px 30px 20px 30px;
+}
+
+.intro {
+    padding: 200px 0 200px 0;
 }
 
 /*---------------------------------3.2 main----------------------------------------*/
 main {
     background-color: #F3F6F9;
+    border-color: deeppink;
+    border-style: solid;
 }
 
-.form {
+.hello {
+    border-style: solid;
+    border-color: coral;
+    text-align: center;
+    color: #5722CD;
+}
+
+.hello article {padding: 200px 0 200px 0;}
+
+.work {
+    border-style: solid;
+    border-color: green;
+}
+
+.work .inner-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/*remove*/
+.work article {
+    border-style: dashed ;
+    border-color: coral;
+}
+/*remove^^^^*/
+
+.rolling-stone {
+    display: flex;
+}
+
+.variety {
+    display: flex;
+}
+
+.worth {
+    display: flex;
+}
+
+.services {
+    border-color: darkslateblue;
+    border-style: solid;
+}
+
+.services .inner-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-article {
+    border-color: deeppink;
+    border-style: dotted;
+    height: 500px;
+    width: 500px;
+}
+
+.service-logos {
+    display: inline-block;
+    width: 60px;
+}
+
+.form-container {
+    border-color: deeppink;
+    border-style: groove;
     background-color: #5722CD;
     color: #F3F6F9;
+    text-align: center;
+}
+
+.form-container div{
+    border-color: chartreuse;
+    border-style: solid;
+    padding: 250px 0 250px 0;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+form{
+    text-align: start;
+    border-style: solid;
+    border-color: gold;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    align-self: center;
+}
+
+button {
+    background-color: #ED4385;
+    color: white;
+    height: 50px;
+    width: 160px;
+    border-style: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    align-self: center;
+
 }
 
 /*---------------------------------3.3 footer----------------------------------------*/

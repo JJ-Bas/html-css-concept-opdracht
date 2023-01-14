@@ -8,11 +8,13 @@
 <body>
 <header class="outer-container">
     <nav>
-        <a href="linktonowhere">Case Studies</a>
-        <a href="linktonowhere">Services</a>
-        <a href="linktonowhere">Contact Us</a>
+        <ul>
+            <li><a href="linktonowhere">Case Studies</a></li>
+            <li><a href="linktonowhere">Services</a></li>
+            <li><a href="linktonowhere">Contact Us</a></li>
+        </ul>
     </nav>
-    <div class="inner-container">
+    <div class="intro inner-container">
         <article>
             <h1>Your website is an investment in the success of your business.</h1>
             <p>We are here to help you succeed.</p>
@@ -24,8 +26,10 @@
     <section class="hello outer-container">
         <div class="inner-container">
             <article>
-                <h3>Rekupe is a digital agency in Los Angeles. We use strategic UX, SEO optimization and beautiful
-                    visual designs to help your business grow. We see every project as a fresh opportunity, pushing
+                <h3>Rekupe is a digital agency in Los Angeles.
+                    We use strategic UX, SEO optimization and beautiful
+                    visual designs to help your business grow.
+                    We see every project as a fresh opportunity, pushing
                     ourselves to create new digital experiences.</h3>
                 <p>Have a question? <a href="linktonowhere">Click here</a> to contact us!</p>
             </article>
@@ -33,7 +37,7 @@
     </section>
     <section class="work outer-container">
         <div class="inner-container">
-            <article>
+            <article class="rolling-stone">
                 <div>
                     <h3>Rolling Stone</h3>
                     <p>You know Rolling Stone. It’s the definitive voice in music, politics and culture. It’s a global
@@ -42,16 +46,16 @@
                 </div>
                 <span><img src="assets/work-image-01.jpeg" alt="laptop displaying RollingStone website"></span>
             </article>
-            <article>
-                <span><img src="assets/work-image-02.jpeg" alt="variety magazines on desk"></span>
+            <article class="variety">
                 <div>
                     <h3>Variety</h3>
                     <p>Variety is an industry leader for breaking entertainment news, reviews and box office results
                         with archive of content dating back to 1905.</p>
                     <a href="linktonowhere">view project</a>
                 </div>
+                <span><img src="assets/work-image-02.jpeg" alt="variety magazines on desk"></span>
             </article>
-            <article>
+            <article class="worth">
                 <div>
                     <h3>Worth</h3>
                     <p>A global media platform connecting a community that embraces worth beyond wealth.</p>
@@ -61,46 +65,46 @@
             </article>
         </div>
     </section>
-    <section class="Services outer-container">
+    <section class="services outer-container">
         <div class="inner-container">
-            <article>
-                <img src="assets/icon_web-design.svg">
+            <article class="service-article">
+                <span class="service-logos"><img src="assets/icon_web-design.svg"></span>
                 <h3>Web Design</h3>
                 <p>Good web design is how companies stand out from their competitors. High quality web design leads to
                     increased user conversion and engagement. Through a proven web design process, we help clients
                     launch websites and products that improve on their bottom line.</p>
             </article>
-            <article>
-                <img src="assets/icon_web-development.svg">
+            <article class="service-article">
+                <span class="service-logos"><img src="assets/icon_web-development.svg"></span>
                 <h3>Web Development</h3>
                 <p> Modern websites need to be responsive and fully functional at all sizes. We develop all of our sites
                     with a mobile first approach and ensure that our code quality is clean, organized and performant.
                     Already have a design but need it developed? We’re here to help!</p>
             </article>
-            <article>
-                <img src="assets/icon_ux.svg">
+            <article class="service-article">
+                <span class="service-logos"><img src="assets/icon_ux.svg"></span>
                 <h3>User Experience</h3>
                 <p>In order to build successful products you have to understand the user. We create user personas,
                     wireframes and prototypes to test with users. This allows us to gather feedback which helps to shape
                     the product and can quickly eliminate potential risks – saving you time and money.</p>
             </article>
-            <article>
-                <img src="assets/icon_graphic-design.svg">
+            <article class="service-article">
+                <span class="service-logos"><img src="assets/icon_graphic-design.svg"></span>
                 <h3>Logo Design + Branding</h3>
                 <p>Nike, Apple, Coca-Cola, Starbucks. What do all of these brands have in common? Easily recognizable
                     logos and brand identity. The best brands stand out from the crowd by having a clear and unique
                     point of view. We will work with you to understand your vision and help create a unique brand
                     identity and style guide for your company.</p>
             </article>
-            <article>
-                <img src="assets/icon_seo.svg">
+            <article class="service-article">
+                <span class="service-logos"><img src="assets/icon_seo.svg"></span>
                 <h3>SEO</h3>
                 <p>Do you want your site to rank higher in search results? Google is constantly changing their
                     algorithms for how they rank pages. Don’t worry about constantly playing catch-up. We will make sure
                     your website it optimized, providing you the best opportunities for organic search exposure.</p>
             </article>
-            <article>
-                <img src="assets/icon_copywriting.svg">
+            <article class="service-article">
+                <span class="service-logos"><img src="assets/icon_copywriting.svg"></span>
                 <h3>Copy Writing</h3>
                 <p>Brand messaging needs to be clear, direct and easy to understand to be effective. A unique tone of
                     voice will help you stand out from the crowd and build brand loyalty. We work with you to establish
@@ -108,10 +112,20 @@
             </article>
         </div>
     </section>
-    <section class="form outer-container">
+    <section class="form-container outer-container">
         <div class="inner-container">
             <h2>Let's work together</h2>
             <p>Have a question? Need a quote? Let us know!</p>
+            <form>
+                <label for="name">Name</label>
+                <input type="text" placeholder="name" id="name" name="name">
+                <label for="email">Email</label>
+                <input type="email" placeholder="email" id="email" name="email">
+                <label for="message">Message</label>
+                <input type="text" placeholder="message" id="message" name="massage" style="height: 100px">
+
+               <button type="submit">send</button>
+            </form>
         </div>
     </section>
 </main>
