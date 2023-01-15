@@ -59,10 +59,14 @@ header {
     color: #F3F6F9;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    align-items: center;
     text-align: center;
     border-style: solid;
     border-color: gold;
+}
+
+nav {
+    width: 100vw;
 }
 
 nav ul {
@@ -76,7 +80,13 @@ nav li {
 }
 
 .intro {
-    padding: 200px 0 200px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    margin: 0 40px;
+    flex: 0 1 0px;
 }
 
 /*---------------------------------3.2 main----------------------------------------*/
@@ -91,9 +101,21 @@ main {
     border-color: coral;
     text-align: center;
     color: #5722CD;
+    display: flex;
+    justify-content: center;
 }
 
-.hello article {padding: 200px 0 200px 0;}
+.hello .inner-container {
+    margin: 40px;
+    flex: 0 1 900px /*    width: 50vw;
+    min-width: 400px;*/
+}
+
+.hello article {
+    padding: 200px 0 200px 0;
+}
+
+/*--------------------ARTICLES-----------*/
 
 .work {
     border-style: solid;
@@ -103,14 +125,27 @@ main {
 .work .inner-container {
     display: flex;
     flex-direction: column;
+    margin: 40px;
 }
 
-/*remove*/
+.promo-image-span {
+    box-shadow: 2px 8px 20px #7A7A7A;
+}
+
 .work article {
-    border-style: dashed ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-style: dashed;
     border-color: coral;
 }
-/*remove^^^^*/
+
+.promo-text-box {
+    border-style: solid;
+    border-color: #0C0C0C;
+    width: 500px;
+    margin: 60px;
+}
 
 .rolling-stone {
     display: flex;
@@ -124,38 +159,57 @@ main {
     display: flex;
 }
 
+/*-----------------SERVICES------------------*/
+
 .services {
     border-color: darkslateblue;
     border-style: solid;
 }
 
-.services .inner-container{
+.services .inner-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .service-article {
-    border-color: deeppink;
-    border-style: dotted;
-    height: 500px;
-    width: 500px;
+    border-color: #5722CD;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 2px 8px 20px #7A7A7A;
+    margin: 20px;
+    height: 400px;
+    width: 400px;
+}
+
+.service-article h3 {
+    color: #5722CD;
+    margin: 10px 40px;
+}
+
+.service-article p {
+    color: #7A7A7A;
+    margin: 10px 40px;
 }
 
 .service-logos {
     display: inline-block;
-    width: 60px;
+    width: 100px;
+    margin: 40px 0px 10px 40px;
 }
+
+/*----------------FORM----------------*/
 
 .form-container {
     border-color: deeppink;
-    border-style: groove;
+    border-style: dotted;
     background-color: #5722CD;
     color: #F3F6F9;
     text-align: center;
 }
 
-.form-container div{
+
+.form-container div {
     border-color: chartreuse;
     border-style: solid;
     padding: 250px 0 250px 0;
@@ -164,7 +218,7 @@ main {
     align-content: center;
 }
 
-form{
+form {
     text-align: start;
     border-style: solid;
     border-color: gold;
@@ -183,7 +237,6 @@ button {
     border-radius: 25px;
     text-transform: uppercase;
     align-self: center;
-
 }
 
 /*---------------------------------3.3 footer----------------------------------------*/
