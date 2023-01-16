@@ -27,6 +27,10 @@ Grijs #7A7A7A (voor de service-tegel tekst);
     box-sizing: border-box;
 }
 
+/*als ik bij * { overflow-x: hidden;} toevoeg verdwijnt mijn probleem met de driehoek
+maar ik het de witte swuiggle ineens een scroll balk.
+als ik overflow toepas op andere elementen dan werkt het niet?*/
+
 /*---------------------------------2. typography----------------------------------------*/
 
 body {
@@ -43,6 +47,8 @@ a:link {
     color: gray;
 }
 
+/*remove gray? or make white?*/
+
 /*---------------------------------3. areas----------------------------------------*/
 
 .inner-container {
@@ -56,6 +62,7 @@ a:link {
 /*---------------------------------3.1 header----------------------------------------*/
 header {
     background-color: #5722CD;
+    background-image: linear-gradient(to bottom right, hsl(233, 45%, 52%), hsl(259, 72%, 47%));
     color: #F3F6F9;
     display: flex;
     flex-direction: column;
@@ -67,6 +74,7 @@ header {
 
 nav {
     width: 100vw;
+    max-width: 100%;
 }
 
 nav ul {
@@ -84,10 +92,39 @@ nav li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 900px;
+    padding: 60px 0 0 0;
+    max-width: 700px;
     margin: 0 40px;
-    flex: 0 1 0px;
+    flex: 0 1 auto;
 }
+
+.intro p {
+    margin: 20px 0 0 0;
+}
+
+.intro button {
+    font-size: 12px;
+    width: 200px;
+}
+
+.squiggle-white {
+    width: 60px;
+    margin: 80px 0 0 0;
+    position: relative;
+    top: 40px;
+}
+
+.top-triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 100vw 60px 0;
+    border-color: transparent #5722CD transparent transparent;
+}
+
+/*bij 100vw word de driehoek te groot. Bij de navigatiebalk kan ik het corrigeren
+met max-width: 100% dat lukt niet bij de driehoek.
+tussen de chrome en de firefox browser zit ook verschil??!*/
 
 /*---------------------------------3.2 main----------------------------------------*/
 main {
@@ -107,12 +144,25 @@ main {
 
 .hello .inner-container {
     margin: 40px;
-    flex: 0 1 900px /*    width: 50vw;
-    min-width: 400px;*/
+    flex: 0 1 700px
 }
 
 .hello article {
-    padding: 200px 0 200px 0;
+    padding: 100px 0 100px 0;
+}
+
+.hello h3 {
+    margin: 15px;
+    font-size: 24px;
+}
+
+.hello p {
+    color: #0C0C0C;
+    margin: 60px 0 0 0;
+}
+
+.hello a:link {
+    color: #5722CD;
 }
 
 /*--------------------ARTICLES-----------*/
@@ -120,16 +170,40 @@ main {
 .work {
     border-style: solid;
     border-color: green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.work a:link {
+    text-transform: uppercase;
+    color: #5722CD;
+    font-weight: bold;
+    font-size: 12px;
 }
 
 .work .inner-container {
     display: flex;
     flex-direction: column;
-    margin: 40px;
+    margin: 0 40px;
+    max-width: 1600px;
 }
 
+img {
+    width: 100%;
+    display: block;
+}
+
+/* waarom is de display:block nodig om het witte lijntje weg te halen? */
+
 .promo-image-span {
-    box-shadow: 2px 8px 20px #7A7A7A;
+    box-shadow: 2px 8px 16px hsl(0, 0%, 48%);
+    flex: 0 1 800px;
+    margin: 30px 0;
+}
+
+.squiggle-purple {
+    width: 40px;
 }
 
 .work article {
@@ -140,11 +214,21 @@ main {
     border-color: coral;
 }
 
+.work article:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
 .promo-text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-style: solid;
     border-color: #0C0C0C;
-    width: 500px;
+    height: 200px;
+    min-width: 160px;
+    flex: 0 1 300px;
     margin: 60px;
+
 }
 
 .rolling-stone {
@@ -164,11 +248,15 @@ main {
 .services {
     border-color: darkslateblue;
     border-style: solid;
+    display: flex;
+    justify-content: center;
 }
 
 .services .inner-container {
     display: flex;
     flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 40px;
     justify-content: center;
 }
 
@@ -195,27 +283,48 @@ main {
 .service-logos {
     display: inline-block;
     width: 100px;
-    margin: 40px 0px 10px 40px;
+    margin: 40px 0 10px 40px;
 }
 
-/*----------------FORM----------------*/
+.bottom-triangle {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 60px 0 0 100vw;
+    border-color: transparent transparent transparent #5722CD;
+}
+
+/*-----------FORM----------------*/
 
 .form-container {
     border-color: deeppink;
     border-style: dotted;
-    background-color: #5722CD;
+    background-color: hsl(259, 72%, 47%);
+    background-image: linear-gradient(to bottom right, hsl(233, 45%, 52%), hsl(259, 72%, 47%));
     color: #F3F6F9;
+    display: flex;
+    justify-content: center;
     text-align: center;
 }
 
 
-.form-container div {
+.form-container .inner-container {
     border-color: chartreuse;
     border-style: solid;
-    padding: 250px 0 250px 0;
     display: flex;
     flex-direction: column;
-    align-content: center;
+    margin: 0 40px;
+    max-width: 900px;
+    flex: 1 1;
+}
+
+.form-container h2 {
+    margin: 40px 0 0 0;
+    font-size: 40px;
+}
+
+.form-container p {
+    margin: 20px;
 }
 
 form {
@@ -224,8 +333,18 @@ form {
     border-color: gold;
     display: flex;
     flex-direction: column;
-    width: 900px;
-    align-self: center;
+}
+
+label {
+    font-size: 12px;
+}
+
+input {
+    border-radius: 3px;
+    border-style: none;
+    height: 50px;
+    text-transform: capitalize;
+    margin: 0 0 30px 0;
 }
 
 button {
@@ -237,10 +356,13 @@ button {
     border-radius: 25px;
     text-transform: uppercase;
     align-self: center;
+    margin: 20px;
+    box-shadow: 2px 8px 20px hsl(259, 92%, 43%);
 }
 
 /*---------------------------------3.3 footer----------------------------------------*/
 footer {
     background-color: #0C0C0C;
     color: #F3F6F9;
+    text-align: center;
 }
