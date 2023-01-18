@@ -25,11 +25,18 @@ Grijs #7A7A7A (voor de service-tegel tekst);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* overflow-x: hidden;*/
+}
+
+:root {
+    --purple: #5722CD;
+    --lightpurple: #F2F0FF;
+    --blue: #4845E4;
 }
 
 /*als ik bij * { overflow-x: hidden;} toevoeg verdwijnt mijn probleem met de driehoek
-maar ik het de witte swuiggle ineens een scroll balk.
-als ik overflow toepas op andere elementen dan werkt het niet?*/
+maar verschijnt bij de witte squiggle ineens een scroll balk.
+als ik overflow-x hidden toepas op individuele elementen dan werkt het niet?*/
 
 /*---------------------------------2. typography----------------------------------------*/
 
@@ -44,7 +51,7 @@ h1, h2, h3, h4 {
 
 a:link {
     text-decoration: none;
-    color: gray;
+    color: white;
 }
 
 /*remove gray? or make white?*/
@@ -61,8 +68,8 @@ a:link {
 
 /*---------------------------------3.1 header----------------------------------------*/
 header {
-    background-color: #5722CD;
-    background-image: linear-gradient(to bottom right, hsl(233, 45%, 52%), hsl(259, 72%, 47%));
+    background-color: var(--purple);
+    background-image: url("/assets/noise-texture.png"), linear-gradient(to right, var(--blue), hsl(259, 72%, 47%));
     color: #F3F6F9;
     display: flex;
     flex-direction: column;
@@ -107,20 +114,25 @@ nav li {
     width: 200px;
 }
 
-.squiggle-white {
-    width: 60px;
-    margin: 80px 0 0 0;
+.intro::after {
+    content: "";
+    background: url("/assets/squiggle_line_stripe.svg");
     position: relative;
-    top: 40px;
+    display: block;
+    height: 110px;
+    width: 70px;
+    top: 60px;
+    z-index: 1;
 }
 
 .top-triangle {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 100vw 60px 0;
-    border-color: transparent #5722CD transparent transparent;
+    width: 100%;
+    height: 80px;
+    background: url("/assets/noise-texture.png"), linear-gradient(to right, var(--blue), hsl(259, 72%, 47%));
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
 }
+
+/*linear-gradient(to right, hsl(233, 45%, 52%), hsl(259, 72%, 47%));*/
 
 /*bij 100vw word de driehoek te groot. Bij de navigatiebalk kan ik het corrigeren
 met max-width: 100% dat lukt niet bij de driehoek.
@@ -128,7 +140,7 @@ tussen de chrome en de firefox browser zit ook verschil??!*/
 
 /*---------------------------------3.2 main----------------------------------------*/
 main {
-    background-color: #F3F6F9;
+    /* background-color: #F3F6F9;*/
     border-color: deeppink;
     border-style: solid;
 }
@@ -137,14 +149,25 @@ main {
     border-style: solid;
     border-color: coral;
     text-align: center;
-    color: #5722CD;
+    color: var(--purple);
     display: flex;
     justify-content: center;
+    margin: 0 0 50px 0;
+}
+
+.hello::after {
+    content: "hello";
+    color: var(--lightpurple);
+    font-size: 30vw;
+    font-weight: bold;
+    position: absolute;
+    z-index: -1;
+
 }
 
 .hello .inner-container {
     margin: 40px;
-    flex: 0 1 700px
+    flex: 0 1 700px;
 }
 
 .hello article {
@@ -162,7 +185,14 @@ main {
 }
 
 .hello a:link {
-    color: #5722CD;
+    color: var(--purple);
+}
+
+.middle-triangle {
+    width: 100%;
+    height: 80px;
+    background: #F2F0FF;
+    clip-path: polygon(100% 100%, 0% 0%, 0% 100%);
 }
 
 /*--------------------ARTICLES-----------*/
@@ -173,13 +203,40 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #F2F0FF;
+    padding: 50px 0 50px 0;
+}
+
+.work::after {
+    content: "work";
+    color: white;
+    font-size: 30vw;
+    font-weight: bold;
+    position: absolute;
 }
 
 .work a:link {
     text-transform: uppercase;
-    color: #5722CD;
+    color: var(--purple);
     font-weight: bold;
     font-size: 12px;
+}
+
+.view-project::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    bottom: 3px;
+    left: 6px;
+    align-items: center;
+    width: 6px;
+    height: 1px;
+    background-color: var(--purple);
+    transition: width .35s ease-in-out;
+}
+
+.view-project:hover::after {
+    width: 40px;
 }
 
 .work .inner-container {
@@ -202,8 +259,15 @@ img {
     margin: 30px 0;
 }
 
-.squiggle-purple {
-    width: 40px;
+
+.work h3::after {
+    content: "";
+    background: url("/assets/squiggle_line.svg");
+    display: block;
+    height: 6px;
+    width: 50px;
+    position: relative;
+    top: 20px;
 }
 
 .work article {
@@ -233,6 +297,7 @@ img {
 
 .rolling-stone {
     display: flex;
+    z-index: 1;
 }
 
 .variety {
@@ -243,6 +308,13 @@ img {
     display: flex;
 }
 
+.middle-triangle-two {
+    width: 100%;
+    height: 80px;
+    background: var(--lightpurple);
+    clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+}
+
 /*-----------------SERVICES------------------*/
 
 .services {
@@ -250,6 +322,16 @@ img {
     border-style: solid;
     display: flex;
     justify-content: center;
+    padding: 50px 0 0 0;
+}
+
+.services::after {
+    content: "services";
+    color: #F2F0FF;
+    font-size: 20vw;
+    font-weight: bold;
+    position: absolute;
+    z-index: -1;
 }
 
 .services .inner-container {
@@ -264,6 +346,8 @@ img {
     border-color: #5722CD;
     border-style: solid;
     border-width: 2px;
+    color: #7A7A7A;
+    background-color: white;
     box-shadow: 2px 8px 20px #7A7A7A;
     margin: 20px;
     height: 400px;
@@ -287,11 +371,10 @@ img {
 }
 
 .bottom-triangle {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 60px 0 0 100vw;
-    border-color: transparent transparent transparent #5722CD;
+    width: 100%;
+    height: 80px;
+    background: url("/assets/noise-texture.png"), linear-gradient(to right, var(--blue), hsl(259, 72%, 47%));
+    clip-path: polygon(100% 100%, 0% 0%, 0% 100%);
 }
 
 /*-----------FORM----------------*/
@@ -300,7 +383,7 @@ img {
     border-color: deeppink;
     border-style: dotted;
     background-color: hsl(259, 72%, 47%);
-    background-image: linear-gradient(to bottom right, hsl(233, 45%, 52%), hsl(259, 72%, 47%));
+    background-image: url("/assets/noise-texture.png"), linear-gradient(to bottom right, var(--blue), hsl(259, 72%, 47%));
     color: #F3F6F9;
     display: flex;
     justify-content: center;
@@ -365,4 +448,97 @@ footer {
     background-color: #0C0C0C;
     color: #F3F6F9;
     text-align: center;
+    padding: 20px;
 }
+
+/*----------------media queries-------------------*/
+
+
+@media screen and (max-width: 1200px) {
+
+    .promo-text-box {
+        margin: 40px;
+    }
+    .promo-text-box p { font-size: 13.5px}
+}
+
+@media screen and (max-width: 600px) {
+
+    .inner-container {
+        margin: 10px;
+    }
+
+    .hello .inner-container {
+        margin: 10px;
+    }
+
+    .hello article{ padding: 50px 0;}
+
+    .work .inner-container {
+        margin: 10px
+    }
+
+    .work {
+        padding: 0;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .hello h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px
+    }
+
+    .work article {
+        flex-direction: column-reverse;
+    }
+
+    .work article:nth-child(even) {
+        flex-direction: column-reverse;
+    }
+
+    .promo-text-box {
+        margin: 0;
+        flex: 0 0 180px;
+    }
+
+    .promo-image-span {
+        flex: 0 0 auto;
+    }
+
+    .service-article {
+        margin: 0 0 20px 0;
+        height: 300px;
+        width: 300px;
+    }
+
+    .service-article p {
+        font-size: 12px;
+    }
+
+    .service-logos {
+        width: 60px;
+    }
+
+    .form-container h2 {
+        font-size: 26px
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+
+    .triangle{
+        height: 30px;
+    }
+}
+
