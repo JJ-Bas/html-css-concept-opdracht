@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+/*////////////////////////////////////////////////////////
+table of contents
+1. global styles
+2. typography
+3. areas
+    3.1 header
+    3.2 main
+    3.3 footer
+////////////////////////////////////////////////////////
+Paars #5722CD;
+Blauw #4845E4;
+Roze #ED4385;
+Zwart #0C0C0C (voor standaard tekst);
+Lichtpaars #F2F0FF (voor de grote zwevende woorden, zoals "hello" en "services")
+Uitzonderingen: Lichtgrijs #F3F6F9 (voor de achtergrond van de projecten)
+Grijs #7A7A7A (voor de service-tegel tekst);
+/////////////////////////////////////////////////////////*/
+
+/*---------------------------------1. global styles----------------------------------------*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple: #5722CD;
+    --lightpurple: #F2F0FF;
+    --blue: #4845E4;
+}
+
+/*---------------------------------2. typography----------------------------------------*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #0C0C0C;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Merriweather', serif;
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+/*---------------------------------3. areas----------------------------------------*/
+
+/*---------------------------------3.1 header----------------------------------------*/
+header {
+    background-color: var(--purple);
+    background-image: url("/assets/noise-texture.png"), linear-gradient(to right, var(--blue), hsl(259, 72%, 47%));
+    color: #F3F6F9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+nav {
+    width: 100vw;
+    max-width: 100%;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+}
+
+nav li {
+    margin: 20px 30px 20px 30px;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0 0 0;
+    max-width: 700px;
+    margin: 0 40px;
+    flex: 0 1 auto;
+}
+
+.intro p {
+    margin: 20px 0 0 0;
+}
+
+.intro button {
+    font-size: 12px;
+    width: 200px;
+}
+
+.intro::after {
+    content: "";
+    background: url("/assets/squiggle_line_stripe.svg");
+    position: relative;
+    display: block;
+    height: 110px;
+    width: 70px;
+    top: 60px;
+    z-index: 1;
+}
+
+.top-triangle {
+    width: 100%;
+    height: 70px;
+    background: url("/assets/noise-texture.png"), linear-gradient(to right, var(--blue), hsl(259, 72%, 47%));
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+/*linear-gradient(to right, hsl(233, 45%, 52%), hsl(259, 72%, 47%));*/
+
+/*bij 100vw word de driehoek te groot. Bij de navigatiebalk kan ik het corrigeren
+met max-width: 100% dat lukt niet bij de driehoek.
+tussen de chrome en de firefox browser zit ook verschil??!*/
+
+/*---------------------------------3.2 main----------------------------------------*/
+
+.hello {
+    text-align: center;
+    color: var(--purple);
+    display: flex;
+    justify-content: center;
+    margin: 0 0 50px 0;
+}
+
+.hello article {
+    position: relative;
+}
+
+.hello article::before {
+    content: "hello";
+    color: var(--lightpurple);
+    font-size: 30vw;
+    font-weight: bold;
+    position: absolute;
+    left: -80px;
+    top: 0;
+    z-index: -1;
+
+}
+
+.hello .inner-container {
+    margin: 40px;
+    flex: 0 1 700px;
+}
+
+.hello article {
+    padding: 100px 0 100px 0;
+}
+
+.hello h3 {
+    margin: 15px;
+    font-size: 24px;
+}
+
+.hello p {
+    color: #0C0C0C;
+    margin: 60px 0 0 0;
+}
+
+.hello a:link {
+    color: var(--purple);
+}
+
+.middle-triangle {
+    width: 100%;
+    height: 70px;
+    background: #F2F0FF;
+    clip-path: polygon(100% 100%, 0% 0%, 0% 100%);
+}
+
+/*--------------------ARTICLES-----------*/
+
+.work {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F2F0FF;
+    padding: 150px 0 50px 0;
+}
+
+.rolling-stone {
+    position: relative
+}
+
+.rolling-stone::before {
+    content: "work";
+    color: white;
+    font-size: 30vw;
+    font-weight: bold;
+    position: absolute;
+    top: -200px;
+    z-index: -1;
+}
+
+.work a:link {
+    text-transform: uppercase;
+    color: var(--purple);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.view-project::after {
+    content: "";
+    display: inline-block;
+    position: relative;
+    bottom: 3px;
+    left: 6px;
+    align-items: center;
+    width: 6px;
+    height: 1px;
+    background-color: var(--purple);
+    transition: width .35s ease-in-out;
+}
+
+.view-project:hover::after {
+    width: 40px;
+}
+
+.work .inner-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 40px;
+    max-width: 1600px;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+/* waarom is de display:block nodig om het witte lijntje weg te halen? */
+
+.promo-image-span {
+    box-shadow: 2px 8px 16px hsl(0, 0%, 48%);
+    flex: 0 1 800px;
+    margin: 30px 0;
+}
+
+
+.work h3::after {
+    content: "";
+    background: url("/assets/squiggle_line.svg");
+    display: block;
+    height: 6px;
+    width: 50px;
+    position: relative;
+    top: 20px;
+}
+
+.work article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.work article:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.promo-text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    min-width: 160px;
+    flex: 0 1 300px;
+    margin: 60px;
+
+}
+
+.rolling-stone {
+    display: flex;
+    z-index: 1;
+}
+
+.variety {
+    display: flex;
+}
+
+.worth {
+    display: flex;
+}
+
+.middle-triangle-two {
+    width: 100%;
+    height: 70px;
+    background: var(--lightpurple);
+    clip-path: polygon(100% 100%, 0% 0%, 100% 0%);
+}
+
+/*-----------------SERVICES------------------*/
+
+.services {
+    display: flex;
+    justify-content: center;
+    padding: 100px 0 0 0;
+    position: relative;
+}
+
+.services::after {
+    content: "services";
+    color: #F2F0FF;
+    font-size: 20vw;
+    font-weight: bold;
+    position: absolute;
+    top: -40px;
+    z-index: -1;
+}
+
+.services .inner-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 40px;
+    justify-content: center;
+}
+
+.service-article {
+    border-color: #5722CD;
+    border-style: solid;
+    border-width: 2px;
+    color: #7A7A7A;
+    background-color: white;
+    box-shadow: 2px 8px 20px #7A7A7A;
+    margin: 20px;
+    height: 400px;
+    width: 400px;
+}
+
+.service-article h3 {
+    color: #5722CD;
+    margin: 10px 40px;
+}
+
+.service-article p {
+    color: #7A7A7A;
+    margin: 10px 40px;
+}
+
+.service-logos {
+    display: inline-block;
+    width: 100px;
+    margin: 40px 0 10px 40px;
+}
+
+.bottom-triangle {
+    width: 100%;
+    height: 70px;
+    background: url("/assets/noise-texture.png"), linear-gradient(to right, var(--blue), hsl(259, 72%, 47%));
+    clip-path: polygon(100% 100%, 0% 0%, 0% 100%);
+}
+
+/*-----------FORM----------------*/
+
+.form-container {
+    background-color: hsl(259, 72%, 47%);
+    background-image: url("/assets/noise-texture.png"), linear-gradient(to right, var(--blue), hsl(259, 72%, 47%));
+    color: #F3F6F9;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.form-container .inner-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 40px;
+    max-width: 900px;
+    flex: 1 1;
+}
+
+.form-container h2 {
+    margin: 40px 0 0 0;
+    font-size: 40px;
+}
+
+.form-container p {
+    margin: 20px;
+}
+
+form {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 12px;
+}
+
+input {
+    border-radius: 3px;
+    border-style: none;
+    height: 50px;
+    text-transform: capitalize;
+    margin: 0 0 30px 0;
+}
+
+button {
+    background-color: #ED4385;
+    color: white;
+    height: 50px;
+    width: 160px;
+    border-style: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    align-self: center;
+    margin: 20px 20px 60px 20px;
+    box-shadow: 2px 8px 20px hsl(259, 92%, 43%);
+}
+
+/*---------------------------------3.3 footer----------------------------------------*/
+footer {
+    background-color: #0C0C0C;
+    color: #F3F6F9;
+    text-align: center;
+    padding: 20px;
+}
+
+/*----------------media queries-------------------*/
+
+
+@media screen and (max-width: 1100px) {
+
+    .promo-text-box {
+        margin: 40px;
+    }
+
+    .promo-text-box p {
+        font-size: 13px;
+    }
+
+    .hello article::before {
+        top: 40px;
+        left: 40px;
+    }
+
+    .services::after {
+        top: 20px
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .inner-container {
+        margin: 10px;
+    }
+
+    .hello .inner-container {
+        margin: 10px;
+    }
+
+    .hello article {
+        padding: 50px 0;
+    }
+
+    .work .inner-container {
+        margin: 10px
+    }
+
+    .work {
+        padding: 0;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .hello h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px
+    }
+
+    .work article {
+        flex-direction: column-reverse;
+    }
+
+    .work article:nth-child(even) {
+        flex-direction: column-reverse;
+    }
+
+    .promo-text-box {
+        margin: 0;
+        flex: 0 0 180px;
+    }
+
+    .promo-image-span {
+        flex: 0 0 auto;
+    }
+
+    .service-article {
+        margin: 0 0 20px 0;
+        height: 300px;
+        width: 300px;
+    }
+
+    .service-article p {
+        font-size: 12px;
+    }
+
+    .service-logos {
+        width: 60px;
+    }
+
+    .form-container h2 {
+        font-size: 26px
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+
+    .triangle {
+        height: 30px;
+    }
+
+    .services::after {
+        top: 50px
+    }
+
+}
+
